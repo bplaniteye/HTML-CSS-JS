@@ -1,0 +1,60 @@
+input{
+	display: grid;
+	background: #ddd;
+	border-radius: 20px;
+	width: 60px; height: 40px;
+	appearance: none; -webkit-appearance: none; 
+	cursor: pointer;
+	border: 0;
+	margin: 0;
+}
+input:not(:first-of-type)::before{
+	content: '';	
+	/* move up a row */
+	transform: translatey(-60px); 
+	pointer-events: none;
+}
+/* when checked */
+input:checked + * + input::before,
+input:last-of-type:checked{
+	border-radius: 20px;
+	background: blue;
+}
+input:checked + * + input + * + input::before{
+	border-top-left-radius: unset !important;
+	border-top-right-radius: unset !important;
+}
+input:checked::before{
+	border-bottom-left-radius: unset !important;
+	border-bottom-right-radius: unset !important;
+}
+input:nth-of-type(4):checked + * + input:checked {
+	border-top-left-radius: unset ;
+	border-top-right-radius: unset ;
+}
+label{
+	font: 50px Girassol;
+	color: lime;
+	text-shadow: 2px 2px 0 blue;
+	cursor: pointer;
+}
+main{
+	display: grid;
+	grid:  repeat(5, 60px) / 90px 1fr;
+	align-items: center;
+	width: max-content;
+}
+body{
+	display: grid;
+	height: 100vh;
+	align-items: center;
+	justify-items: center;
+	user-select: none; -webkit-user-select:  none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+/*
+
+First off, my code is for heuristic purposes only. When using this method, ensure you've a solid layout that doesn't displace the pseudo-elements from top of the preceding boxes in all instances. Also, remember to use a layout that allows you to use the next element selector. The unset border values override the set border values only in the checked states — That's why the unchecked boxes' borders are unaffected by the checked boxes. You can also try this with other suitable shapes.The asterik character used in the code is the label between the boxes. 
+
+*/

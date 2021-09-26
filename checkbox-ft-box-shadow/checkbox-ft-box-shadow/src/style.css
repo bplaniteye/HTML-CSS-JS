@@ -1,0 +1,34 @@
+input{
+	width: 40px; height: 40px;
+	border-radius: 50%;
+	transition: box-shadow .3s;
+	background: lightgrey;
+	cursor: pointer;
+	border: 0;
+	appearance: none; -webkit-appearance: none; 
+ }
+
+input:checked{ box-shadow: inset 0 0 0 20px blue; }
+
+main{
+	display: grid;
+	grid:  repeat(4, 100px) / 90px 1fr;
+	align-items: center;
+	width: max-content;
+}
+label{
+	font: 60px Girassol;
+	color: lime;
+	text-shadow: 2px 2px 0 blue;
+	cursor: pointer;
+}
+body{
+	display: grid;
+	height: 100vh;
+	align-items: center; 
+	justify-items: center;
+	user-select: none; -webkit-user-select:  none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+/* You can also try multiple shadow values if there's some level of transparency between the shadow colors. You can get that transparency with rgba() color values. */

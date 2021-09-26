@@ -1,0 +1,67 @@
+input[type=checkbox]{
+	display: grid;
+	width: 100px; height: 70px;
+	line-height: 60px;
+	text-align: center;
+	cursor: pointer;
+	border: 0; 
+	appearance: none; -webkit-appearance: none;
+}
+
+input[type=checkbox]::before,
+input[type=checkbox]::after{
+	grid-area: 1/1;
+	border-radius: 40px;
+	mix-blend-mode: hard-light;
+	pointer-events: none;
+}
+
+input[type=checkbox]::before{
+	transform: translate(10px, 10px);
+	background: green;
+	text-indent: -20px;
+	font-size: 25px;
+	content: '✓';
+	color: white;
+}
+
+input[type=checkbox]::after{
+	background: blue;
+	font-size: 50px;
+	content: '⨯';
+}
+
+input[type=checkbox]:checked::after{
+	mix-blend-mode: unset;
+	color: transparent;
+}
+
+main{
+	display: grid;
+	grid:  repeat(4, 100px) / 150px 1fr;
+	align-items: center;
+	width: max-content;
+}
+
+label{
+	font: 60px Girassol;
+	color: lime;
+	text-shadow: 2px 2px 0 blue;
+	cursor: pointer;
+}
+
+body{
+	display: grid;
+	height: 100vh;
+	align-items: center; 
+	justify-items: center;
+	background: white;
+	user-select: none; -webkit-user-select:  none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+/*
+
+This code is for heuristic purposes only. Other ways you can play this are by trying different blend mode values, or using a single element with two backgrounds that are blended with `background-blend-mode`. You can also not blend the elements at first and do it after the box is checked. Hide the pseudo-elements or replace them with normal elements that can be hidden if they don't work as expected in other UAs or medias. 
+
+*/
